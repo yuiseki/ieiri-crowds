@@ -1,0 +1,23 @@
+{
+  "name": "ieiri",
+  "version": "0.0.0",
+  "description": "ERROR: No README.md file found!",
+  "main": "app.js",
+  "scripts": {
+    "test": "jasmine-node --coffee spec/",
+    "start": "coffee app/index.coffee"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+    "twitter": "~0.2.5",
+    "passport-twitter": "~1.0.2",
+    "passport": "~0.1.18",
+    "connect-redis": "~1.4.6",
+    "imagemagick-native": "~0.2.9",
+    "mongoose": "~3.8.5",
+    "request": "~2.33.0",
+    "mkdirp": "~0.3.5"
+  }
+}

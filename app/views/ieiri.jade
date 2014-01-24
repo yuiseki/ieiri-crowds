@@ -1,0 +1,31 @@
+
+form(name="twitter_update", method="post", action="/join_ieiri")
+    div
+        // ONが必須 これはtwitter loginボタンの所に付けるべき
+        // TODO ONになるまで他の項目は操作出来なくする
+        input.required(type="checkbox", name="over_20")
+        label(for="over_20") 私は20歳以上です(必須)
+    div
+        // 本当は全員「家入一真」にしたいが、公職選挙法で成りすましとみなされそうなのでやめる
+        input(type="checkbox", name="change_name")
+        label(for="change_name") Twitter表示名を 「#{user.displayName} 量産型家入一真」 にする
+    div
+        input(type="checkbox", name="change_icon")
+        label(for="change_icon") Twitterのアイコンに家入一真を載せる
+        br
+        img(src="/static/icons/base/#{user.name.slice(0,2)}/#{user.name}.png")
+        →
+        img(src="/static/icons/ieiri/#{user.name.slice(0,2)}/#{user.name}.png")
+    //
+        div
+            input(type="checkbox", name="change_bg")
+            label(for="change_bg") Twitterの背景画像を家入一真にする
+    div
+        // 「家入一真に投票しよう」とかだと公職選挙法にひっかかりそうなのでやめる
+        input(type="checkbox", name="auto_tweet")
+        label(for="auto_tweet") 一時間に一回「家入一真」とツイートする
+    div
+        input(type="checkbox", name="auto_rt")
+        label(for="auto_rt") 家入一真が何かツイートしたら全部RTする
+    div
+        input(type="submit", value="submit")
