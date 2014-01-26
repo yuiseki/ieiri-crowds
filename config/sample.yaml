@@ -1,0 +1,16 @@
+
+mongodb:
+    host: "localhost"
+    db: "ieiri_crowds_test"
+cookie:
+    secret: "hogehoge"
+sessionRedis:
+    db: 1
+    secret: "hogehoge"
+    prefix: "ieiri-session-test:"
+twitter:
+    consumerKey: ""
+    consumerSecret: ""
+    callbackURL: "http://localhost:3000/auth/twitter/callback"
+
+

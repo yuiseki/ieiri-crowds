@@ -1,3 +1,4 @@
+config = require "config"
 request = require "request"
 fs = require "fs"
 mkdirp = require "mkdirp"
@@ -5,15 +6,13 @@ mkdirp = require "mkdirp"
 imagemagick = require "imagemagick-native"
 
 twitterApi = require "twitter"
-consumerKey = "aiuceLsQSPnEL8UmKWE4A"
-consumerSecret = "rZQ3GKvwrguTgc3y6z7XJglToJdiPynno59EdzHCw"
 
 class TwitterClient
     constructor: (token, secret) ->
         @data = null
         @twitter = new twitterApi
-            consumer_key: consumerKey
-            consumer_secret: consumerSecret
+            consumer_key: config.twitter.consumerKey
+            consumer_secret: config.twitter.consumerSecret
             access_token_key: token
             access_token_secret: secret
         return @
@@ -81,22 +80,14 @@ class TwitterClient
                 content = {image:base64image}
                 @twitter.post apiUrl, content, ->
                     done({resulte:"succeed"})
-    changeNameIeiri: (name) ->
-        newName = "#{name} 量産型家入一真"
-
-    ieiriDisplayName: ->
-        @twitter.updateProfile {name:"量産型家入一真"}
-    revertDisplayName: ->
-        @getOriginalSettings (data) ->
-            @twitter.updateProfile {name:data.name}
-
-    loadIcon: (imagepath, callback)->
-        @changeIcon base64image
-    ieiriIcon: ->
-        path = "ieiripath"
-        @loadIcon path
     revertIcon: ->
         @getOriginalSettings (data) ->
             @loadIcon data.profile_image_url
+
+    changeNameIeiri: (name) ->
+        newName = "#{name} 量産型家入一真"
+    revertName: ->
+        @getOriginalSettings (data) ->
+            @twitter.updateProfile {name:data.name}
 
 exports.TwitterClient = TwitterClient
