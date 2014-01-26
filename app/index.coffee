@@ -45,7 +45,7 @@ app.get "/auth/twitter",
     passport.authenticate "twitter"
 app.get "/auth/twitter/callback",
     passport.authenticate "twitter",
-        successRedirect: "/join_ieiri",
+        successRedirect: "/ieiri/join",
         failureRedirect: "/"
 
 
@@ -61,14 +61,14 @@ app.get "/user", (req, res) ->
     else
         res.send req.user
 
-app.get "/join_ieiri", (req, res) ->
+app.get "/ieiri/join", (req, res) ->
     if not req.user?
         res.redirect "/"
     else
         res.render "ieiri", {user:req.user}
 
 # TODO CSRF対策
-app.post "/join_ieiri", (req, res) ->
+app.post "/ieiri/join", (req, res) ->
     console.log req.body
     if req.body.over_20 == "on"
         req.user.updateTwitter req, ()->

@@ -37,7 +37,7 @@ userSchema.statics.loginTwitter = (token, tokenSecret, profile, done) ->
                 else
                     done null, user
         else
-            console.log "loginTwitter create", prifile.username
+            console.log "loginTwitter create", profile.username
             User = @model "User"
             user = new User()
             user.provider = "twitter"
