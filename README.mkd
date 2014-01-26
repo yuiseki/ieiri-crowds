@@ -1,16 +1,50 @@
 # 家入一真量産装置
 
+
+## 画面遷移
+- `/`
+    - サイトトップページ
+    - index.html 静的ファイルにしておきたい 負荷対策
+    - 以下の機能はjsで実現
+    - 必要な機能
+        - 家入一真スロット
+        - 20歳以上であることを確認するチェックボックス
+        - Twitterでログインボタン(上記のチェックボックスがONの時だけ押せる)
+        - これまで量産型家入一真になったユーザーの生成されたアイコンを表示
+            - 最近登録した人の一覧を返すJSON APIを用意する
+- /join_ieiri
+    - Twitterアカウントをどう更新するか、各種の設定をユーザーに入力してもらう
+    - 必要な機能
+        - 20歳以上であることを改めて確認する　チェックボックス
+        - Twitterアイコンに家入一真を乗せる　チェックボックス
+        - Twitterユーザー名を 「量産型家入一真 現在の名前」にする　チェックボックス
+        - (未完成) 一時間に一回「家入一真」とツイートする　チェックボックス
+        - (未完成) 家入一真がなにかツイートしたら全部RTする　チェックボックス
+        - その他、アイデアが増え次第追加していく
+        - [実行する] ボタン
+- /top
+    - 量産型家入一真になったログインユーザー向けの専用画面
+    - 必要な機能
+        - 自分が何人目の家入一真か表示する機能
+        - その他、アイデアが増え次第追加していく
+
+
 ## System Requirements
 - Node.js
     - 0.10以降
+    - `nave.sh use 0.10`
+- Coffeescript
+    - `npm install coffeescript -g`
 - Redis
     - Expressのセッション管理に使用
+    - `sudo aptitude install redis-server`
+    - debianの場合redis-serverのバージョンが古いのでbackportを利用する
 - MongoDB
     - ユーザーデータの保存等に使用
 - ImageMagick
-- libmagick++--dev
+- libmagick++-dev
     - 画像処理に使用
-
+    - `sudo aptitude install libmagick++-dev`
 
 
 ## How to run
