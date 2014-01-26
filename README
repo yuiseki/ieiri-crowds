@@ -1,0 +1,19 @@
+
+# System Requirements
+- Node.js
+    - 0.10以降
+- Redis
+    - Expressのセッション管理に使用
+- MongoDB
+    - ユーザーデータの保存等に使用
+- ImageMagick
+- libmagick++--dev
+    - 画像処理に使用
+
+
+# How to run
+```
+npm install
+npm start
+```
+
