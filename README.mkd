@@ -1,5 +1,6 @@
+# 家入一真量産装置
 
-# System Requirements
+## System Requirements
 - Node.js
     - 0.10以降
 - Redis
@@ -11,7 +12,16 @@
     - 画像処理に使用
 
 
-# How to run
+
+## How to run
+
+### 1. 設定ファイル
+
+`cp config/sample.yaml config/default.yaml`
+してTwitterのConsumerKeyとConsumerSecretを設定する。
+
+### 2. 起動
+
 ```
 npm install
 npm start
