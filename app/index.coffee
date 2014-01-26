@@ -45,7 +45,7 @@ app.get "/auth/twitter",
     passport.authenticate "twitter"
 app.get "/auth/twitter/callback",
     passport.authenticate "twitter",
-        successRedirect: "/top",
+        successRedirect: "/join_ieiri",
         failureRedirect: "/"
 
 
@@ -57,13 +57,13 @@ app.get "/top", (req, res) ->
 
 app.get "/user", (req, res) ->
     if not req.user?
-        res.redirect "/auth/twitter"
+        res.redirect "/"
     else
         res.send req.user
 
 app.get "/join_ieiri", (req, res) ->
     if not req.user?
-        res.redirect "/auth/twitter"
+        res.redirect "/"
     else
         res.render "ieiri", {user:req.user}
 

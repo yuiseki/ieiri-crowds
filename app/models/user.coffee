@@ -25,8 +25,9 @@ userSchema.pre "save", (next) ->
 
 # Static methods
 userSchema.statics.loginTwitter = (token, tokenSecret, profile, done) ->
-    @findOne {uid: profile.id} , (err, user) ->
+    @findOne {uid: profile.id} , (err, user) =>
         if user?
+            console.log "loginTwitter exists", user.name
             user.displayName = profile.displayName
             user.twitterToken = token
             user.twitterTokenSecret = tokenSecret
@@ -36,6 +37,7 @@ userSchema.statics.loginTwitter = (token, tokenSecret, profile, done) ->
                 else
                     done null, user
         else
+            console.log "loginTwitter create", prifile.username
             User = @model "User"
             user = new User()
             user.provider = "twitter"
