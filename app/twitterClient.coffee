@@ -74,12 +74,12 @@ class TwitterClient
         ieiriPath = "./static/icons/ieiri/#{screen_name.slice(0,2)}/#{screen_name}.png"
         fs.readFile ieiriPath, (err, data) =>
             if err
-                done({resulte:"failed"})
+                done({result:"failed"})
             else
                 base64image = data.toString("base64")
                 content = {image:base64image}
                 @twitter.post apiUrl, content, ->
-                    done({resulte:"succeed"})
+                    done({result:"succeed"})
     revertIcon: ->
         # TODO
         @getOriginalSettings (data) ->
@@ -90,20 +90,28 @@ class TwitterClient
         content =
             name: newName
         @twitter.updateProfile content, ->
-            done({resulte:"succeed"})
+            done({result:"succeed"})
     revertName: ->
         # TODO
         @getOriginalSettings (data) ->
             @twitter.updateProfile {name:data.name}
     autoRT: (id, done)->
-        @twitter.retweetStatus id, ->
-            done({resulte:"succeed"})
-    autoTweet: (done)->
-        @twitter.updateStatus "家入一真", (err)->
+        @twitter.retweetStatus id, (err)->
             if err?
-                @twitter.updateStatus "家入一真 #{Math.floor(new Date().getTime()/1000)}", ->
-                    done({resulte:"succeed"})
+                done "error"
             else
-                    done({resulte:"succeed"})
+                done(null, {result:"succeed"})
+    autoTweet: (done)->
+        @twitter.updateStatus "家入一真", (err)=>
+            if err?
+                console.log err
+                @twitter.updateStatus "家入一真 #{Math.floor(new Date().getTime()/1000)}", (err_)->
+                    if err_?
+                        console.log err_
+                        done "error"
+                    else
+                        done(null, {result:"succeed"})
+            else
+                    done(null, {result:"succeed"})
 
 exports.TwitterClient = TwitterClient
