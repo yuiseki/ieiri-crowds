@@ -38,6 +38,10 @@ app.configure ->
         secret: config.sessionRedis.secret
         cookie: {maxAge: 1000 * 60 * 60 * 24 * 7}
         store: new RedisStore({db: config.sessionRedis.db, prefix: config.sessionRedis.prefix})
+    app.use express.csrf()
+    app.use (req, res, next) ->
+        res.locals.token = req.csrfToken()
+        next()
     app.use passport.initialize()
     app.use passport.session()
 
