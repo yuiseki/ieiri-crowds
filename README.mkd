@@ -45,6 +45,8 @@
 - libmagick++-dev
     - 画像処理に使用
     - `sudo aptitude install libmagick++-dev`
+- OpenCV
+    - sudo apt-get install libcv-dev libopencv-dev libhighgui-dev
 
 
 ## How to run
