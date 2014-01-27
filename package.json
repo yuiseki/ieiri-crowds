@@ -5,7 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "jasmine-node --coffee spec/",
-    "start": "coffee app/index.coffee"
+    "run": "coffee app/index.coffee",
+    "start": "coffee app/index.coffee",
+    "startworker": "coffee app/scripts/queue.coffee",
+    "startwatcher": "coffee app/scripts/ieiriWatcher.coffee"
   },
   "repository": "",
   "author": "",
@@ -22,6 +25,7 @@
     "config": "~0.4.35",
     "yaml": "~0.2.3",
     "express": "~3.4.8",
-    "jade": "~1.1.5"
+    "jade": "~1.1.5",
+    "kue": "~0.7.3"
   }
 }

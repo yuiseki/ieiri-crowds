@@ -8,12 +8,12 @@ imagemagick = require "imagemagick-native"
 twitterApi = require "twitter"
 
 class TwitterClient
-    constructor: (token, secret) ->
+    constructor: (key, secret) ->
         @data = null
         @twitter = new twitterApi
             consumer_key: config.twitter.consumerKey
             consumer_secret: config.twitter.consumerSecret
-            access_token_key: token
+            access_token_key: key
             access_token_secret: secret
         return @
     createIeiriIcon: (screen_name, callback) ->
@@ -81,13 +81,29 @@ class TwitterClient
                 @twitter.post apiUrl, content, ->
                     done({resulte:"succeed"})
     revertIcon: ->
+        # TODO
         @getOriginalSettings (data) ->
             @loadIcon data.profile_image_url
 
-    changeNameIeiri: (name) ->
-        newName = "#{name} 量産型家入一真"
+    changeNameIeiri: (name, done) ->
+        newName = "家入一真@#{name}"
+        content =
+            name: newName
+        @twitter.updateProfile content, ->
+            done({resulte:"succeed"})
     revertName: ->
+        # TODO
         @getOriginalSettings (data) ->
             @twitter.updateProfile {name:data.name}
+    autoRT: (id, done)->
+        @twitter.retweetStatus id, ->
+            done({resulte:"succeed"})
+    autoTweet: (done)->
+        @twitter.updateStatus "家入一真", (err)->
+            if err?
+                @twitter.updateStatus "家入一真 #{Math.floor(new Date().getTime()/1000)}", ->
+                    done({resulte:"succeed"})
+            else
+                    done({resulte:"succeed"})
 
 exports.TwitterClient = TwitterClient

@@ -56,6 +56,16 @@ userSchema.statics.loginTwitter = (token, tokenSecret, profile, done) ->
                     client.createIeiriIcon user.name, (error)->
                         done null, user
 
+userSchema.statics.forEach = () ->
+userSchema.statics.getAutoTweet = (proc) ->
+    console.log "getAutoTweet"
+    stream = @model("User").find({task:{auto_twitter:"on"}}).stream()
+    stream.on "error", (err)->
+        console.log err
+    stream.on "data", (doc)->
+        console.log "on data"
+        proc doc
+
 # MapReduce
 userSchema.statics.execByAutoTweet = (o, done) ->
     @model("User").collection.mapReduce o, {task:{"auto_tweet":"on"}}, done
