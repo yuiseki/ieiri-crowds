@@ -76,13 +76,20 @@ userSchema.statics.execByAutoRT = (o, done) ->
 # Instance methods
 userSchema.methods.updateTwitter = (req, done) ->
     # ユーザーの設定をモデルに保存
-    @task = req.body
+    delete req.body._csrf
+    console.log req.body
+    #@task = req.body
+    @task.over_20 = req.body.over_20
+    @task.auto_tweet = req.body.auto_tweet
+    @task.auto_rt = req.body.auto_rt
     @save (err) =>
+        console.log err
         # すぐすべき処理を実行
         client = new TwitterClient @twitterToken, @twitterTokenSecret
         if req.body.change_icon == "on"
-            client.changeIconIeiri @name, ()->
-                done()
+            done()
+            #client.changeIconIeiri @name, ()->
+            #    done()
         else
             done()
 exports.userSchema = userSchema

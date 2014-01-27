@@ -6,9 +6,10 @@ mongoose.connect "mongodb://#{config.mongodb.host}/#{config.mongodb.db}"
 kue = require "kue"
 jobs = kue.createQueue()
 
-User.find {name:"devseki"}, (err, results)->
+User.find {"task.auto_tweet":"on" }, (err, results)->
     for user in results
         console.log "add autoTweet job"
+        console.log user.task
         console.log user.twitterToken, user.twitterToken
 
         jobs.create("autoTweet",

@@ -71,7 +71,6 @@ app.get "/ieiri/join", (req, res) ->
     else
         res.render "ieiri", {user:req.user}
 
-# TODO CSRF対策
 app.post "/ieiri/join", (req, res) ->
     console.log req.body
     if req.body.over_20 == "on"
