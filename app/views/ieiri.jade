@@ -28,4 +28,5 @@ form(name="twitter_update", method="post", action="/join_ieiri")
         input(type="checkbox", name="auto_rt")
         label(for="auto_rt") 家入一真が何かツイートしたら全部RTする
     div
+        input(type="hidden" name="_csrf" value=token)
         input(type="submit", value="submit")
