@@ -86,7 +86,7 @@ class TwitterClient
             @loadIcon data.profile_image_url
 
     changeNameIeiri: (name, done) ->
-        newName = "家入一真@#{name}"
+        newName = "家入一真非公式広報 #{name}"
         content =
             name: newName
         @twitter.updateProfile content, ->
