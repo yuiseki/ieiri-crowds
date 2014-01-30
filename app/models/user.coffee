@@ -28,7 +28,7 @@ userSchema.set "toJSON",
         return {
             name: ret.name
             displayName: ret.displayName
-            ieiriIonc: "/static/icons/base/#{ret.name.slice(0,2)}/#{ret.name}.png"
+            ieiriIcon: "/static/icons/ieiri/#{ret.name.slice(0,2)}/#{ret.name}.png"
         }
 
 
