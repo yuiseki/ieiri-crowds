@@ -10,6 +10,7 @@ TwitterStrategy = require("passport-twitter").Strategy
 
 mongoose = require "mongoose"
 mongoose.connect "mongodb://#{config.mongodb.host}/#{config.mongodb.db}"
+require "mongoose-pagination"
 
 {User} = require "./models/user"
 
@@ -58,6 +59,19 @@ app.get "/top", (req, res) ->
         res.redirect "/"
     else
         res.send "top"
+
+allowCrossOrigin = (res)->
+    res.header 'Access-Control-Allow-Origin', '*'
+    res.header 'Access-Control-Allow-Credentials', true
+    res.header 'Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS'
+    res.header 'Access-Control-Allow-Headers', 'Content-Type'
+# /users?page=1&per_page=15
+app.get "/users", (req, res) ->
+    allowCrossOrigin res
+    page = req.query.page ? "1"
+    per_page = req.query.per_page ? "15"
+    User.find().paginate page, per_page, (err, results, total) ->
+        res.send {users:results, page:page, per_page:per_page, total:total}
 
 app.get "/user", (req, res) ->
     if not req.user?

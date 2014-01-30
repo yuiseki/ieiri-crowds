@@ -27,6 +27,7 @@
     "express": "~3.4.8",
     "opencv": "*",
     "jade": "~1.1.5",
-    "kue": "~0.7.3"
+    "kue": "~0.7.3",
+    "mongoose-pagination": "~1.0.0"
   }
 }

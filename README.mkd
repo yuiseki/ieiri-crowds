@@ -12,7 +12,7 @@
         - Twitterでログインボタン(上記のチェックボックスがONの時だけ押せる)
         - これまで量産型家入一真になったユーザーの生成されたアイコンを表示
             - 最近登録した人の一覧を返すJSON APIを用意する
-- /join_ieiri
+- `/join_ieiri`
     - Twitterアカウントをどう更新するか、各種の設定をユーザーに入力してもらう
     - 必要な機能
         - 20歳以上であることを改めて確認する　チェックボックス
@@ -22,7 +22,7 @@
         - (未完成) 家入一真がなにかツイートしたら全部RTする　チェックボックス
         - その他、アイデアが増え次第追加していく
         - [実行する] ボタン
-- /top
+- `/top`
     - 量産型家入一真になったログインユーザー向けの専用画面
     - 必要な機能
         - 自分が何人目の家入一真か表示する機能
@@ -46,7 +46,7 @@
     - 画像処理に使用
     - `sudo aptitude install libmagick++-dev`
 - OpenCV
-    - sudo apt-get install libcv-dev libopencv-dev libhighgui-dev
+    - `sudo apt-get install libcv-dev libopencv-dev libhighgui-dev`
 
 
 ## How to run

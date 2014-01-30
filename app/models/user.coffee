@@ -23,6 +23,15 @@ userSchema.pre "save", (next) ->
     @updated = new Date()
     next()
 
+userSchema.set "toJSON",
+    transform: (doc, ret, options)->
+        return {
+            name: ret.name
+            displayName: ret.displayName
+            ieiriIonc: "/static/icons/base/#{ret.name.slice(0,2)}/#{ret.name}.png"
+        }
+
+
 # Static methods
 userSchema.statics.loginTwitter = (token, tokenSecret, profile, done) ->
     @findOne {uid: profile.id} , (err, user) =>
