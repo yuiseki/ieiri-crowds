@@ -143,15 +143,8 @@ p a, p a:hover, p a:visited {
 	z-index: -1;
 }
 
-.flyer {
-	width: 100%;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	position: relative;
-}
-
 .footer {
-	margin-bottom: 300px;
+	margin-bottom: 100px;
 }
 
 #fever {
@@ -174,8 +167,13 @@ p a, p a:hover, p a:visited {
 .twitter-share-button {
 	margin-top: 600px;
 	width: 130px !important;
-	-webkit-transform: scale(4);
-	-moz-transform: scale(4);
+	-webkit-transform: scale(3);
+	-moz-transform: scale(3);
+}
+
+#policy iframe {
+	width: 80%;
+	height: 600px;
 }
 
 

@@ -19,10 +19,6 @@ $(function() {
 		parallax();
 	});
 
-	$(window).resize(function(e) {
-		$('.flyer').css({'height':$(document).width()*1.3});
-	});
-
     $(document).ready(function(e){
         setInterval(fireworks, 2000);
         loadYoutube();
@@ -120,9 +116,3 @@ function beat() {
 	$('.fireworks').animate({rotate: '+=360deg', scale: '1.0'}, 120);
 	$span.animate({rotate:'+=360deg',scale:'2.5'},400).delay(10).animate({scale:'1.0'},10);
 }
-
-
-
-
-
-
