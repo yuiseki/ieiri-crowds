@@ -35,13 +35,21 @@ $(function() {
 
 var wrapper = $('.wrapper');
 
+var params = {page:1, per_page:15, total:null, rest:null}
 function fireworks() {
-    console.log("fireworks");
-    $.getJSON('/app/users', function(data, status, xhr){
+    console.log(params)
+    $.getJSON('/app/users', params, function(data, status, xhr){
+        params.total = data.total;
+        params.rest = data.total-(data.per_page*data.page);
+        if (params.rest > 0) {
+            params.page = parseInt(data.page)+1;
+        } else {
+            params.page = 1;
+        }
         $.each(data.users, function(idx, user){
             var rand_x = Math.floor(Math.random()*90);
             var rand_y = Math.floor(Math.random()*80);
-            wrapper.append('<img src="'+user.ieiriIcon+'" class="fireworks" style="width:200px;height:200px;left:'+rand_x+'%; top:'+rand_y+'%;" />');
+            wrapper.append('<img src="'+user.ieiriIcon+'" class="fireworks" style="width:150px;height:150px;left:'+rand_x+'%; top:'+rand_y+'%;" />');
             $('.fireworks').fadeOut(5000).queue(function() { this.remove(); });
         });
     });
