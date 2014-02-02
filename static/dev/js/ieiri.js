@@ -25,6 +25,7 @@ $(function() {
 
     $(document).ready(function(e){
         setInterval(fireworks, 1500);
+        loadYoutube();
     });
 
     $('.kurenai').mouseover(function(e){
@@ -47,6 +48,21 @@ $(function() {
 });
 
 var wrapper = $('.wrapper');
+
+var currentVideo = null;
+var videoList = [
+    "j1UflQ0WeR0", // 紅
+    //"rd5LCpImgic", // マック赤坂　埋め込み無効
+    //"-U71wYvd_Xg", // 中川智晴　埋め込み無効
+    "B-tdPNUA-20", // 家入一真
+    "j1UflQ0WeR0", // 紅
+];
+function loadYoutube() {
+    currentVideo = videoList[Math.floor(Math.random() * videoList.length)];
+    var youtubeUrl = "//www.youtube.com/embed/"+currentVideo+"?rel=0&controls=0&showinfo=0&autoplay=1&loop=1";
+    console.log(youtubeUrl)
+    $("#kurenai").attr("src", youtubeUrl);
+};
 
 var params = {page:1, per_page:15, total:null, rest:null}
 function fireworks() {
