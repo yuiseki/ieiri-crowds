@@ -1,3 +1,17 @@
+var slotLeft;
+var slotCenter;
+var slotRight;
+var birdvoice;
+
+var slotRollLeft;
+var slotRollCenter;
+var slotRollRight;
+
+var $slotLeft;
+var $slotCenter;
+var $slotRight;
+var $slotRestart;
+
 $(function() {
 
 	var rave = new buzz.sound("http://182.48.54.40/rave",{
@@ -10,6 +24,77 @@ $(function() {
 		console.log('fever!!!!');
 		fever();
 	});
+
+    //スロットのjqueryオブジェクトをキャッシュ
+    $slotLeft = $('#slot-left');
+    $slotCenter = $('#slot-center');
+    $slotRight = $('#slot-right');
+    $slotRestart = $('#slot-restart');
+
+    //スロット回転開始
+    slotStart();
+
+    //鳥の鳴き声で使用するbuzzをインスタンス化
+    birdvoice = new buzz.sound('assets/sound/bird', {
+        formats: [ "ogg", "mp3" ],
+        preload: false,
+        autoplay: false
+    });
+
+    //スロットの左のストップボタンが押された時の処理
+    $('#slot-stop-left').click(function() {
+        clearTimeout(slotStopLeft);
+        slotLeft = $slotLeft.attr('data-yama');
+
+        $slotLeft.addClass('stop');
+
+        if ($slotLeft.hasClass('stop') && $slotCenter.hasClass('stop') && $slotRight.hasClass('stop')) {
+            if (slotLeft == slotCenter && slotLeft == slotRight) {
+                bird();
+            } else {
+                $slotRestart.fadeIn();
+            }
+        }
+    });
+
+    //スロットの中央のストップボタンが押された時の処理
+    $('#slot-stop-center').click(function() {
+        clearTimeout(slotStopCenter);
+        slotCenter = $slotCenter.attr('data-yama');
+
+        $slotCenter.addClass('stop');
+
+        if ($slotLeft.hasClass('stop') && $slotCenter.hasClass('stop') && $slotRight.hasClass('stop')) {
+            if (slotLeft == slotCenter && slotLeft == slotRight) {
+                bird();
+            } else {
+                $slotRestart.fadeIn();
+            }
+        }
+    });
+
+    //スロットの右のストップボタンが押された時の処理
+    $('#slot-stop-right').click(function() {
+        clearTimeout(slotStopRight);
+        slotRight = $slotRight.attr('data-yama');
+
+        $slotRight.addClass('stop');
+
+        if ($slotLeft.hasClass('stop') && $slotCenter.hasClass('stop') && $slotRight.hasClass('stop')) {
+            if (slotLeft == slotCenter && slotLeft == slotRight) {
+                bird();
+            } else {
+                $slotRestart.fadeIn();
+            }
+        }
+    });
+
+    //スロットの再スタートボタンが押された時の処理
+    $slotRestart.click(function() {
+        slotStart();
+        $(this).fadeOut();
+    });
+
 
 	$('#fever').click(function() {
 		rave.play();
@@ -115,4 +200,41 @@ function beat() {
 	$h2.animate({rotate: '+=360deg', scale: '3.0'}, 120);
 	$('.fireworks').animate({rotate: '+=360deg', scale: '1.0'}, 120);
 	$span.animate({rotate:'+=360deg',scale:'2.5'},400).delay(10).animate({scale:'1.0'},10);
+}
+
+function slotStart() {
+    slotRollLeft();
+    slotRollCenter();
+    slotRollRight();
+
+    $slotLeft.removeClass('stop');
+    $slotCenter.removeClass('stop');
+    $slotRight.removeClass('stop');
+}
+
+function slotRollLeft() {
+    var rand = Math.floor(Math.random()*10);
+    $slotLeft.css({'backgroundImage': 'url(assets/img/slot-'+rand+'.jpg)'});
+    $slotLeft.attr({'data-yama': rand});
+    slotStopLeft = setTimeout("slotRollLeft();", 100);
+}
+
+function slotRollCenter() {
+    var rand = Math.floor(Math.random()*10);
+    $slotCenter.css({'backgroundImage': 'url(assets/img/slot-'+rand+'.jpg)'});
+    $slotCenter.attr({'data-yama': rand});
+    slotStopCenter = setTimeout("slotRollCenter();", 100);
+}
+
+function slotRollRight() {
+    var rand = Math.floor(Math.random()*10);
+    $slotRight.css({'backgroundImage': 'url(assets/img/slot-'+rand+'.jpg)'});
+    $slotRight.attr({'data-yama': rand});
+    slotStopRight = setTimeout("slotRollRight();", 100);
+}
+
+function bird() {
+    $('#slot-container').append('<img src="assets/img/bird.gif" style="position: absolute; left: -1000px; top: -140px; width: 400px;" class="bird">');
+    $('.bird').animate({'left':'3000px'}, 10000).queue(function() { this.remove() });
+    birdvoice.play();
 }
