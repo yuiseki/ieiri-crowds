@@ -51,11 +51,14 @@ var wrapper = $('.wrapper');
 
 var currentVideo = null;
 var videoList = [
+    "t6IjYGHH01M", // 中川智晴
+    "Hnmxq5F22Vk", // 五十嵐政一
+    "B-tdPNUA-20", // 家入一真
+    "lDP96C1x3ok", // バイノーラルビート
     "j1UflQ0WeR0", // 紅
+    "j1UflQ0WeR0" // 紅
     //"rd5LCpImgic", // マック赤坂　埋め込み無効
     //"-U71wYvd_Xg", // 中川智晴　埋め込み無効
-    "B-tdPNUA-20", // 家入一真
-    "j1UflQ0WeR0", // 紅
 ];
 function loadYoutube() {
     currentVideo = videoList[Math.floor(Math.random() * videoList.length)];
