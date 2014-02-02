@@ -78,6 +78,7 @@ p a, p a:hover, p a:visited {
 	top: 0;
 	left: 0;
 	z-index: -1;
+    background-color: red;
 	background-repeat: repeat;
 }
 

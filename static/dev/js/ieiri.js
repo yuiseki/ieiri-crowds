@@ -26,6 +26,19 @@ $(function() {
     $(document).ready(function(e){
         setInterval(fireworks, 1500);
     });
+
+    $('.kurenai').mouseover(function(e){
+        $('.kurenai').animate({
+            width: "95%",
+            height: "95%"
+        }, 3500, "easeInOutCubic");
+    });
+    $('.kurenai').mouseout(function(e){
+        $('.kurenai').animate({
+            width: "80px",
+            height: "60px"
+        }, 500)
+    });
  
 	function parallax() {
 		var scrolled = $(window).scrollTop();
@@ -37,7 +50,6 @@ var wrapper = $('.wrapper');
 
 var params = {page:1, per_page:15, total:null, rest:null}
 function fireworks() {
-    console.log(params)
     $.getJSON('/app/users', params, function(data, status, xhr){
         params.total = data.total;
         params.rest = data.total-(data.per_page*data.page);
