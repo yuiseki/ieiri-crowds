@@ -181,10 +181,9 @@ function fever() {
 }
 
 function beat() {
-	console.log('beat');
 	$h2.animate({scale:'1.5'},30).delay(60).animate({scale:'1.0'},30);
 	$h2.animate({rotate: '+=360deg', scale: '3.0'}, 120);
-	$('.fireworks').animate({rotate: '+=360deg', scale: '1.0'}, 120);
+	$('.fireworks').animate({rotate: '+=360deg', scale: '2.0'}, 200);
 	$span.animate({rotate:'+=360deg',scale:'2.5'},400).delay(10).animate({scale:'1.0'},10);
 }
 

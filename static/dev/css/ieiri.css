@@ -165,10 +165,10 @@ p a, p a:hover, p a:visited {
 }
 
 .twitter-share-button {
-	margin-top: 600px;
+	margin-top: 40px;
 	width: 130px !important;
-	-webkit-transform: scale(3);
-	-moz-transform: scale(3);
+	-webkit-transform: scale(2);
+	-moz-transform: scale(2);
 }
 
 #policy iframe {
