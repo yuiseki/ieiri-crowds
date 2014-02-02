@@ -24,7 +24,7 @@ $(function() {
 	});
 
     $(document).ready(function(e){
-        setInterval(fireworks, 1500);
+        setInterval(fireworks, 2000);
         loadYoutube();
     });
 
@@ -51,22 +51,30 @@ var wrapper = $('.wrapper');
 
 var currentVideo = null;
 var videoList = [
+    "j1UflQ0WeR0", // 紅
     "t6IjYGHH01M", // 中川智晴
     "Hnmxq5F22Vk", // 五十嵐政一
     "B-tdPNUA-20", // 家入一真
+    "j1UflQ0WeR0", // 紅
+    "XAbdejm4Ew8", // バシャール　超シンプルな物理学
+    "Pfr309Lx8cA", // バシャール　人生はゲーム
+    "QNaip71ZO5Y", // バシャール　パラレルな地球
     "lDP96C1x3ok", // バイノーラルビート
     "j1UflQ0WeR0", // 紅
+    "1pMdojmmxZY", // さかなクンちょっと狂っちゃった
+    "d9_0LFNMx7s", // さかなdeラップ
     "j1UflQ0WeR0" // 紅
     //"rd5LCpImgic", // マック赤坂　埋め込み無効
     //"-U71wYvd_Xg", // 中川智晴　埋め込み無効
 ];
 function loadYoutube() {
     currentVideo = videoList[Math.floor(Math.random() * videoList.length)];
-    var youtubeUrl = "//www.youtube.com/embed/"+currentVideo+"?rel=0&controls=0&showinfo=0&autoplay=1&loop=1";
+    var youtubeUrl = "//www.youtube.com/embed/"+currentVideo+"?rel=0&controls=0&showinfo=0&autoplay=1&loop=1&cc_load_policy=1&vq=hd720";
     console.log(youtubeUrl)
     $("#kurenai").attr("src", youtubeUrl);
 };
 
+var sizeList = ["20","40","50","80","100","150","200","250"];
 var params = {page:1, per_page:15, total:null, rest:null}
 function fireworks() {
     $.getJSON('/app/users', params, function(data, status, xhr){
@@ -80,8 +88,9 @@ function fireworks() {
         $.each(data.users, function(idx, user){
             var rand_x = Math.floor(Math.random()*90);
             var rand_y = Math.floor(Math.random()*80);
-            wrapper.append('<img src="'+user.ieiriIcon+'" class="fireworks" style="width:150px;height:150px;left:'+rand_x+'%; top:'+rand_y+'%;" />');
-            $('.fireworks').fadeOut(5000).queue(function() { this.remove(); });
+            var size = sizeList[Math.floor(Math.random() * sizeList.length)];
+            wrapper.append('<img src="'+user.ieiriIcon+'" class="fireworks" style="width:'+size+'px;height:'+size+'px;left:'+rand_x+'%; top:'+rand_y+'%;" />');
+            $('.fireworks').fadeOut(50000).queue(function() { this.remove(); });
         });
     });
 }

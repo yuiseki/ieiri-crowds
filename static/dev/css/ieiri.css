@@ -5,6 +5,9 @@
     src: url(http://static.tumblr.com/6h2rxc4/dBPmwxnlo/mplus-2p-heavy.ttf);
 }
 
+* {
+    cursor: url(http://ieirikazuma.com/ieiri-tiny.png), default;
+}
 html, body {
 	padding: 0;
 	margin: 0;
