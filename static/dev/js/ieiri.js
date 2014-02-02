@@ -22,6 +22,10 @@ $(function() {
 	$(window).resize(function(e) {
 		$('.flyer').css({'height':$(document).width()*1.3});
 	});
+
+    $(document).ready(function(e){
+        setInterval(fireworks, 1500);
+    });
  
 	function parallax() {
 		var scrolled = $(window).scrollTop();
@@ -32,20 +36,16 @@ $(function() {
 var wrapper = $('.wrapper');
 
 function fireworks() {
-	for (var i=0; i<4; i++) {
-		var rand_x = Math.floor(Math.random()*90);
-		var rand_y = Math.floor(Math.random()*80);
-		wrapper.append('<img src="'+img[i]+'" class="fireworks" style="left:'+rand_x+'%; top:'+rand_y+'%;" />');
-	}
-	$('.fireworks').fadeOut(1200).queue(function() { this.remove(); });
+    console.log("fireworks");
+    $.getJSON('/app/users', function(data, status, xhr){
+        $.each(data.users, function(idx, user){
+            var rand_x = Math.floor(Math.random()*90);
+            var rand_y = Math.floor(Math.random()*80);
+            wrapper.append('<img src="'+user.ieiriIcon+'" class="fireworks" style="width:200px;height:200px;left:'+rand_x+'%; top:'+rand_y+'%;" />');
+            $('.fireworks').fadeOut(5000).queue(function() { this.remove(); });
+        });
+    });
 }
-
-var img = new Array();
-img[0] = 'http://static.tumblr.com/6h2rxc4/xkzmwyk4q/tumblr_m7vp7ulcrt1qzu3e6o2_250.gif';
-img[1] = 'http://static.tumblr.com/6h2rxc4/Dl8mwyk7h/tumblr_m7vp7ulcrt1qzu3e6o2_250.gif';
-img[2] = 'http://static.tumblr.com/6h2rxc4/kBAmwyk85/tumblr_m7vp7ulcrt1qzu3e6o2_250.gif';
-img[3] = 'http://static.tumblr.com/6h2rxc4/lrpmwyk9l/tumblr_m7vp7ulcrt1qzu3e6o2_250.gif';
-img[4] = 'http://static.tumblr.com/6h2rxc4/6lRmwykak/tumblr_m7vp7ulcrt1qzu3e6o2_250.gif';
 
 
 var rainbow_count = $('.rainbow').size();
