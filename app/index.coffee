@@ -79,6 +79,9 @@ app.get "/user", (req, res) ->
     else
         res.send req.user
 
+app.get "/close", (req, res) ->
+    res.render "close"
+
 app.get "/ieiri/join", (req, res) ->
     if not req.user?
         res.redirect "/"
@@ -89,7 +92,7 @@ app.post "/ieiri/join", (req, res) ->
     console.log req.body
     if req.body.over_20 == "on"
         req.user.updateTwitter req, ()->
-            res.send "done"
+            res.render "close"
     else
         res.send "fail"
 

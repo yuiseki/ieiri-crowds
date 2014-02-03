@@ -96,9 +96,9 @@ userSchema.methods.updateTwitter = (req, done) ->
         # すぐすべき処理を実行
         client = new TwitterClient @twitterToken, @twitterTokenSecret
         if req.body.change_icon == "on"
-            done()
-            #client.changeIconIeiri @name, ()->
-            #    done()
+            client.changeNameIeiri @displayName, () =>
+                client.changeIconIeiri @name, ()->
+                    done()
         else
             done()
 exports.userSchema = userSchema

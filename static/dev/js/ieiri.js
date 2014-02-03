@@ -98,7 +98,7 @@ $(function() {
 	});
 
     $(document).ready(function(e){
-        //setInterval(fireworks, 2000);
+        setInterval(fireworks, 5000);
         loadYoutube();
     });
 

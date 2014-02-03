@@ -70,10 +70,12 @@ class TwitterClient
                         callback()
 
     changeIconIeiri: (screen_name, done) ->
+        console.log "changeNameIeiri", screen_name
         apiUrl = 'https://api.twitter.com/1.1/account/update_profile_image.json'
         ieiriPath = "./static/icons/ieiri/#{screen_name.slice(0,2)}/#{screen_name}.png"
         fs.readFile ieiriPath, (err, data) =>
             if err
+                console.log err
                 done({result:"failed"})
             else
                 base64image = data.toString("base64")
@@ -86,6 +88,7 @@ class TwitterClient
             @loadIcon data.profile_image_url
 
     changeNameIeiri: (name, done) ->
+        console.log "changeNameIeiri", name
         newName = "家入一真非公式広報 #{name}"
         content =
             name: newName
@@ -102,6 +105,7 @@ class TwitterClient
             else
                 done(null, {result:"succeed"})
     autoTweet: (done)->
+        #@twitter.updateStatus "家入一真 http://ieirikazuma.com/", (err)=>
         @twitter.updateStatus "家入一真", (err)=>
             if err?
                 console.log err
