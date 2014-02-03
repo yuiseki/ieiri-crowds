@@ -130,7 +130,13 @@ var videoList = [
     "j1UflQ0WeR0", // 紅
     "1pMdojmmxZY", // さかなクンちょっと狂っちゃった
     "d9_0LFNMx7s", // さかなdeラップ
-    "j1UflQ0WeR0" // 紅
+    "j1UflQ0WeR0", // 紅
+    "C8xiy1JZbNk", // funny animal 2014
+    "LSbnECOt5WA", // シンガポールナイトサファリ (ショー)
+    "kfLbhmQkzOY", // シンガポールナイトサファリ (ツアー)
+    "EXfv9siATj0", // Hemi-sync - journeys out of the body
+    "3NKVzsPjMLY" // Hemi-sync - Dreamcatcher
+
     //"rd5LCpImgic", // マック赤坂　埋め込み無効
     //"-U71wYvd_Xg", // 中川智晴　埋め込み無効
 ];
