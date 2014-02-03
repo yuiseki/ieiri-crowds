@@ -23,6 +23,13 @@ $(function() {
 		fever();
 	});
 
+    $('.move-left').mouseover(function({
+        $(this).animate({'right': '+=10px'},2000);
+    });
+    $('.move-right').mouseover(function({
+        $(this).animate({'left': '+=10px'},2000);
+    });
+
     //スロットのjqueryオブジェクトをキャッシュ
     $slotLeft = $('#slot-left');
     $slotCenter = $('#slot-center');
