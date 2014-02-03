@@ -62,6 +62,7 @@ p a, p a:hover, p a:visited {
 	position: fixed;
 	top: 20px;
 	left: 20px;
+	z-index: 500;
 }
 
 #kurenai-cover {
@@ -99,6 +100,7 @@ p a, p a:hover, p a:visited {
 	background-size: 100%;
 	background-repeat: no-repeat;
     opacity: 0.6;
+    z-index: 1;
 }
 
 .content {
@@ -109,7 +111,7 @@ p a, p a:hover, p a:visited {
 
 .unit {
 	width: 95%;
-	margin: 200px auto;
+	margin: 100px auto;
 
 }
 
@@ -252,7 +254,7 @@ p a, p a:hover, p a:visited {
 	}
 
 	.logo {
-		width: 95%;
+		width: 50%;
 	}
 
 	.unit h2 {
@@ -274,8 +276,8 @@ p a, p a:hover, p a:visited {
 	}
 
 	.logo {
-		width: 1333px;
-		height: 1882px;
+        width: 50%;
+		/*height: 1882px;*/
 		background-image: url(http://gyazo.com/eddee98d21155fa73b9fd6e4db1a173c.png);
 		background-size: 100%;
 	}
@@ -299,8 +301,8 @@ p a, p a:hover, p a:visited {
 	}
 
 	.logo {
-		width: 100%;
-		min-height: 2000px;
+		width: 50%;
+		/*min-height: 2000px;*/
 		background-image: url(http://gyazo.com/eddee98d21155fa73b9fd6e4db1a173c.png);
 	}
 	
@@ -333,9 +335,9 @@ p a, p a:hover, p a:visited {
 	}
 
 	.logo {
-		width: 95%;
-		min-height: 2000px;
-		height: auto;
+		width: 50%;
+		/*min-height: 2000px;
+		height: auto;*/
 		background-image: url(http://gyazo.com/eddee98d21155fa73b9fd6e4db1a173c.png);
 		background-size: 100%;
 	}
@@ -369,8 +371,8 @@ p a, p a:hover, p a:visited {
 	}
 
 	.logo {
-		width: 100%;
-		min-height: 600px;
+		width: 50%;
+		/*min-height: 600px;*/
 		background-image: url(http://gyazo.com/eddee98d21155fa73b9fd6e4db1a173c.png);
 		background-size: 100%;
 	}
