@@ -91,7 +91,7 @@ $(function() {
 	});
 
     $(document).ready(function(e){
-        setInterval(fireworks, 2000);
+        //setInterval(fireworks, 2000);
         loadYoutube();
     });
 
@@ -119,9 +119,7 @@ var wrapper = $('.wrapper');
 var currentVideo = null;
 var videoList = [
     "j1UflQ0WeR0", // 紅
-    "t6IjYGHH01M", // 中川智晴
-    "Hnmxq5F22Vk", // 五十嵐政一
-    "B-tdPNUA-20", // 家入一真
+    "17jymDn0W6U", // the known universe
     "j1UflQ0WeR0", // 紅
     "XAbdejm4Ew8", // バシャール　超シンプルな物理学
     "Pfr309Lx8cA", // バシャール　人生はゲーム
@@ -131,6 +129,9 @@ var videoList = [
     "1pMdojmmxZY", // さかなクンちょっと狂っちゃった
     "d9_0LFNMx7s", // さかなdeラップ
     "j1UflQ0WeR0" // 紅
+    //"B-tdPNUA-20", // 家入一真 公職選挙法違反の可能性
+    //"t6IjYGHH01M", // 中川智晴
+    //"Hnmxq5F22Vk", // 五十嵐政一
     //"rd5LCpImgic", // マック赤坂　埋め込み無効
     //"-U71wYvd_Xg", // 中川智晴　埋め込み無効
 ];
@@ -157,7 +158,7 @@ function fireworks() {
             var rand_y = Math.floor(Math.random()*80);
             var size = sizeList[Math.floor(Math.random() * sizeList.length)];
             wrapper.append('<img src="'+user.ieiriIcon+'" class="fireworks" style="width:'+size+'px;height:'+size+'px;left:'+rand_x+'%; top:'+rand_y+'%;" />');
-            $('.fireworks').fadeOut(50000).queue(function() { this.remove(); });
+            $('.fireworks').fadeOut(5000).queue(function() { this.remove(); });
         });
     });
 }
