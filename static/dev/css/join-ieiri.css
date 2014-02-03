@@ -1,0 +1,21 @@
+
+div {
+    padding: 10px;
+    margin: 10px
+}
+
+input[type="checkbox"] {
+    -webkit-transform: scale(3,3);
+    -moz-transform: scale(3,3);
+    -o-transform: scale(3,3);
+    padding: 10px;
+}
+
+label {
+    margin-left: 20px;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
