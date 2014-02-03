@@ -128,6 +128,13 @@ var videoList = [
     "j1UflQ0WeR0", // 紅
     "1pMdojmmxZY", // さかなクンちょっと狂っちゃった
     "d9_0LFNMx7s", // さかなdeラップ
+    "j1UflQ0WeR0", // 紅
+    "C8xiy1JZbNk", // funny animal 2014
+    "LSbnECOt5WA", // シンガポールナイトサファリ (ショー)
+    "kfLbhmQkzOY", // シンガポールナイトサファリ (ツアー)
+    "j1UflQ0WeR0", // 紅
+    "EXfv9siATj0", // Hemi-sync - journeys out of the body
+    "3NKVzsPjMLY", // Hemi-sync - Dreamcatcher
     "j1UflQ0WeR0" // 紅
     //"B-tdPNUA-20", // 家入一真 公職選挙法違反の可能性
     //"t6IjYGHH01M", // 中川智晴
