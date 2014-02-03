@@ -341,6 +341,34 @@ p a, p a:hover, p a:visited {
 	left: 160px;
 }
 
+.ieiri-site12 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 10px #f000f0;
+	top: 400px;
+	right: 200px;
+}
+
+.ieiri-site13 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 20px #f000f0;
+	top: 440px;
+	right: 160px;
+}
+
+.ieiri-site14 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 20px #f000f0;
+	top: 600px;
+	right: 160px;
+}
+
+
 /*
 レスポンシブ
 */
