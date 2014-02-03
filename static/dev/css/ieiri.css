@@ -111,7 +111,7 @@ p a, p a:hover, p a:visited {
 
 .unit {
 	width: 95%;
-	margin: 100px auto;
+	margin: 300px auto;
 
 }
 
@@ -237,6 +237,135 @@ p a, p a:hover, p a:visited {
 	left: 260px;
 	top: 300px;
 	display: none;
+}
+
+.ieiri-site1 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 10px #f000f0;
+	top: 200px;
+	right: 100px;
+}
+
+.ieiri-site2 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 10px #f000f0;
+	bottom: 200px;
+	left: 100px;
+}
+
+.ieiri-site3 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 10px #f000f0;
+	top: 500px;
+	left: 20px;
+}
+
+.ieiri-site4 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 10px #f000f0;
+	top: 560px;
+	left: 20px;
+}
+
+
+.ieiri-site5 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 10px #f000f0;
+	top: 580px;
+	left: 50px;
+}
+
+
+.ieiri-site6 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 10px #f000f0;
+	top: 590px;
+	left: 100px;
+}
+
+
+.ieiri-site7 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 10px #f000f0;
+	top: 400px;
+	left: 100px;
+}
+
+.ieiri-site8 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 10px #f000f0;
+	top: 500px;
+	left: 20px;
+}
+
+.ieiri-site9 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 10px #f000f0;
+	top: 400px;
+	left: 120px;
+}
+
+.ieiri-site10 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 10px #f000f0;
+	top: 600px;
+	left: 200px;
+}
+
+.ieiri-site11 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 10px #f000f0;
+	top: 600px;
+	left: 160px;
+}
+
+.ieiri-site12 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 10px #f000f0;
+	top: 400px;
+	right: 200px;
+}
+
+.ieiri-site13 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 20px #f000f0;
+	top: 440px;
+	right: 160px;
+}
+
+.ieiri-site14 {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border: inset 20px #f000f0;
+	top: 600px;
+	right: 160px;
 }
 
 
