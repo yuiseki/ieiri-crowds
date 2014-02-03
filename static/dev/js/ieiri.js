@@ -57,7 +57,7 @@ $(function() {
 
         if ($slotLeft.hasClass('stop') && $slotCenter.hasClass('stop') && $slotRight.hasClass('stop')) {
             if (slotLeft == slotCenter && slotLeft == slotRight) {
-                bird();
+                fever();
             } else {
                 $slotRestart.fadeIn();
             }
@@ -73,7 +73,7 @@ $(function() {
 
         if ($slotLeft.hasClass('stop') && $slotCenter.hasClass('stop') && $slotRight.hasClass('stop')) {
             if (slotLeft == slotCenter && slotLeft == slotRight) {
-                bird();
+                fever();
             } else {
                 $slotRestart.fadeIn();
             }
