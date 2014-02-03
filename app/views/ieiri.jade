@@ -13,9 +13,9 @@ form(name="twitter_update", method="post", action="/ieiri/join")
         input(type="checkbox", name="change_icon", checked=true, disabled=true)
         label(for="change_icon") Twitterのアイコンに家入一真を載せる
         br
-        img(src="/static/icons/base/#{user.name.slice(0,2)}/#{user.name}.png")
+        img(src="/icons/base/#{user.name.slice(0,2)}/#{user.name}.png")
         span →
-        img(src="/static/icons/ieiri/#{user.name.slice(0,2)}/#{user.name}.png")
+        img(src="/icons/ieiri/#{user.name.slice(0,2)}/#{user.name}.png")
     //
         div
             input(type="checkbox", name="change_bg", checked=true, disabled=true)
