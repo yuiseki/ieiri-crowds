@@ -76,7 +76,8 @@ p a, p a:hover, p a:visited {
 
 #ieiri-mass-product {
     font-size: 40px;
-    padding: 10px;
+    height: 50px
+    padding: 30px;
 }
 
 #bg {
