@@ -93,10 +93,6 @@ $(function() {
         $(this).fadeOut();
     });
 
-	$(window).scroll(function(e) {
-		parallax();
-	});
-
     $(document).ready(function(e){
         setInterval(fireworks, 3000);
         lazyLoadContents();
@@ -115,12 +111,13 @@ $(function() {
             height: "60px"
         }, 500)
     });
- 
-	function parallax() {
-		var scrolled = $(window).scrollTop();
-		$('#bg').css('top',-(scrolled*0.14)+'px');
-	}
+
+    setInterval("removeFireworks()", 20000);
 });
+
+function removeFireworks() {
+    $('.fireworks').remove();
+}
 
 var wrapper = $('.wrapper');
 
@@ -214,7 +211,6 @@ function fireworks() {
             var rand_y = Math.floor(Math.random()*80);
             var size = sizeList[Math.floor(Math.random() * sizeList.length)];
             wrapper.append('<img src="'+user.ieiriIcon+'" class="fireworks" style="width:'+size+'px;height:'+size+'px;left:'+rand_x+'%; top:'+rand_y+'%;" />');
-            $('.fireworks').fadeOut(10000).queue(function() { this.remove(); });
         });
     });
 }
