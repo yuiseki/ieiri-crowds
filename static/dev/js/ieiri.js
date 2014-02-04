@@ -100,6 +100,7 @@ $(function() {
     $(document).ready(function(e){
         setInterval(fireworks, 5000);
         loadYoutube();
+        mouseIeiri();
     });
 
     $('.kurenai').mouseover(function(e){
@@ -177,6 +178,24 @@ function fireworks() {
     });
 }
 
+function mouseIeiri() {
+    var ganmen = $("<div class='ganmen'><img src='/ieiri-tiny.png'></div>")
+    $(ganmen).css({width:'100px', height:'100px', overflow:'hidden', position:'absolute', top:'0', left:'0'});
+    $('body').append(ganmen);
+    $('html').mousemove(function(e){
+        var icon = $(ganmen).offset();
+        $(ganmen).stop();
+        $(ganmen).animate({
+            top:e.pageY+50,
+            left:e.pageX+50
+            },{
+                duration: 1000,
+                specialEasing:{
+                    top:'easeOutCirc',
+                    left:'easeOutCirc'
+                }});
+    });
+}
 
 var rainbow_count = $('.rainbow').size();
 var $h2 = $('h2');

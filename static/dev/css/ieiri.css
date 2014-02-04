@@ -74,6 +74,10 @@ p a, p a:hover, p a:visited {
 	z-index: 1000;
 }
 
+#ieiri-mass-product {
+    font-size: 40px;
+    padding: 10px;
+}
 
 #bg {
 	position: fixed;
@@ -82,7 +86,7 @@ p a, p a:hover, p a:visited {
 	top: 0;
 	left: 0;
 	z-index: -1;
-    background-color: red;
+    background-color: #8B0000;
 	background-repeat: repeat;
 }
 
