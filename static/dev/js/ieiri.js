@@ -98,19 +98,19 @@ $(function() {
 	});
 
     $(document).ready(function(e){
-        setInterval(fireworks, 5000);
-        loadYoutube();
+        setInterval(fireworks, 3000);
+        lazyLoadContents();
         mouseIeiri();
     });
 
     $('.kurenai').mouseover(function(e){
-        $('.kurenai').animate({
+        $('.kurenai').stop().animate({
             width: "95%",
             height: "95%"
         }, 3500, "easeInOutCubic");
     });
     $('.kurenai').mouseout(function(e){
-        $('.kurenai').animate({
+        $('.kurenai').stop().animate({
             width: "80px",
             height: "60px"
         }, 500)
@@ -123,6 +123,14 @@ $(function() {
 });
 
 var wrapper = $('.wrapper');
+
+function lazyLoadContents(){
+    loadYoutube(function(){
+        loadTweetButtons(function(){
+            loadIframes();
+        });
+    });
+};
 
 var currentVideo = null;
 var videoList = [
@@ -150,12 +158,45 @@ var videoList = [
     //"rd5LCpImgic", // マック赤坂　埋め込み無効
     //"-U71wYvd_Xg", // 中川智晴　埋め込み無効
 ];
-function loadYoutube() {
+function loadYoutube(done) {
     currentVideo = videoList[Math.floor(Math.random() * videoList.length)];
     var youtubeUrl = "//www.youtube.com/embed/"+currentVideo+"?rel=0&controls=0&showinfo=0&autoplay=1&loop=1&cc_load_policy=1&vq=hd720";
-    console.log(youtubeUrl)
-    $("#kurenai").attr("src", youtubeUrl);
+    console.log("loadYoutube", youtubeUrl);
+    $("#kurenai").attr("src", youtubeUrl).load(done());
 };
+//
+function loadTwitterWidgets() {
+    console.log("loadTwitterWidgets");
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+}
+function loadTweetButtons(done) {
+    console.log("loadTweetButtons");
+    langList = [
+        "ru", "fr", "ar", "es", "ko", "ru", "fil", "zh-tw", "zh-ch", "hi",
+        "ru", "fr", "ar", "es", "ko", "ru", "fil", "zh-tw", "zh-ch", "hi",
+    ];
+    $.each(langList, function(idx, lang){
+        button = $("<div class='twbtn'><a class='twitter-share-button' href='https://twitter.com/share'>Tweet</a></div>");
+        button = button.find("a").attr({
+            "data-url":"http://ieirikazuma.com/",
+            "data-via":"hbkr",
+            "data-related":"hbkr",
+            "data-hashtags":"非公式ぼくらの政策",
+            "data-size":"large",
+            "data-lang":lang,
+        });
+        $("#tweetbuttons").append(button);
+        if(idx == langList.length-1){
+            loadTwitterWidgets();
+            done();
+        }
+    });
+
+}
+function loadIframes(done) {
+    console.log("loadIframes");
+}
+
 
 var sizeList = ["20","40","50","80","100","150","200","250"];
 var params = {page:1, per_page:15, total:null, rest:null}
@@ -173,7 +214,7 @@ function fireworks() {
             var rand_y = Math.floor(Math.random()*80);
             var size = sizeList[Math.floor(Math.random() * sizeList.length)];
             wrapper.append('<img src="'+user.ieiriIcon+'" class="fireworks" style="width:'+size+'px;height:'+size+'px;left:'+rand_x+'%; top:'+rand_y+'%;" />');
-            $('.fireworks').fadeOut(5000).queue(function() { this.remove(); });
+            $('.fireworks').fadeOut(10000).queue(function() { this.remove(); });
         });
     });
 }
