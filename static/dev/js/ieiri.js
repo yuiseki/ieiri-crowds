@@ -237,7 +237,7 @@ function mouseIeiri() {
 
 function numberOfVotes() {
     var unixtime = Math.floor(new Date().getTime()/1000);
-    var num = unixtime*0.000001;
+    var num = unixtime*Math.random()*0.00001;
     num *= 1.0;
     var keta = ['万', '億', '兆', '京', '垓', '𥝱', '穣', '溝', '澗', '正', '載', '極', '恒河沙', '阿僧祇', '那由他', '不可思議', '無量大数'];
     var text = '';

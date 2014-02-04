@@ -106,16 +106,17 @@ class TwitterClient
                 done(null, {result:"succeed"})
     autoTweet: (done)->
         console.log "try autoTweet"
-        @twitter.updateStatus "東京都知事候補者 家入一真 http://ieirikazuma.com/", (err)=>
-            if err?
+        @twitter.updateStatus "東京都知事候補者 家入一真 http://ieirikazuma.com/", (data)=>
+            console.log data.statusCode
+            if data.statusCode in [400, 401, 403]
                 console.log "tweet 重複"
-                @twitter.updateStatus "東京都知事候補者 家入一真 http://ieirikazuma.com/ #{Math.floor(new Date().getTime()/1000)}", (err_)->
-                    if err_?
+                @twitter.updateStatus "東京都知事候補者 家入一真 http://ieirikazuma.com/ #{Math.floor(new Date().getTime()/1000)}", (data_)->
+                    if data_.statusCode in [400, 401, 403]
                         console.log "tweet 失敗"
                         done "error"
                     else
-                        done(null, {result:"succeed"})
+                        done(data_, {result:"succeed"})
             else
-                    done(null, {result:"succeed"})
+                done(data, {result:"succeed"})
 
 exports.TwitterClient = TwitterClient
