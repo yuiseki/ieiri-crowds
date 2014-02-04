@@ -105,11 +105,10 @@ class TwitterClient
             else
                 done(null, {result:"succeed"})
     autoTweet: (done)->
-        #@twitter.updateStatus "家入一真 http://ieirikazuma.com/", (err)=>
-        @twitter.updateStatus "家入一真", (err)=>
+        @twitter.updateStatus "家入一真 http://ieirikazuma.com/", (err)=>
             if err?
                 console.log err
-                @twitter.updateStatus "家入一真 #{Math.floor(new Date().getTime()/1000)}", (err_)->
+                @twitter.updateStatus "家入一真 http://ieirikazuma.com/ #{Math.floor(new Date().getTime()/1000)}", (err_)->
                     if err_?
                         console.log err_
                         done "error"
