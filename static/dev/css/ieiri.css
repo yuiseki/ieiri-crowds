@@ -376,7 +376,7 @@ p a, p a:hover, p a:visited {
 	width: 100%;
 	height: 6000px;
 	border: none;
-
+	overflow: hidden;
 }
 
 /*
