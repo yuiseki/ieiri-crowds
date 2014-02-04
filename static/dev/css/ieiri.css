@@ -98,15 +98,24 @@ p a, p a:hover, p a:visited {
     padding: 10px 0;
 }
 
-#bg {
+.bg {
 	position: fixed;
 	width: 100%;
 	height: 200%;
 	top: 0;
 	left: 0;
-	z-index: -1;
-    background-color: #8B0000;
+    background-image: url(/ieiri-tiny.png);
 	background-repeat: repeat;
+}
+#bg2 {
+	z-index: -2;
+    background-color: #8B0000;
+    background-position: right;
+}
+#bg1 {
+	z-index: -1;
+    top: -20px;
+    background-position: center;
 }
 
 .wrapper {
@@ -405,10 +414,6 @@ p a, p a:hover, p a:visited {
 */
 /* 1500< */
 @media screen and (min-width: 1701px) {
-	#bg {
-		background-image: url(https://si0.twimg.com/profile_background_images/378800000176388091/R9opj-NP.png);
-	}
-
 	.content {
 		width: 1700px;
 	}
@@ -427,10 +432,6 @@ p a, p a:hover, p a:visited {
 }
 
 @media screen and (min-width: 1401px) and (max-width: 1700px){
-	#bg {
-		background-image: url(https://si0.twimg.com/profile_background_images/378800000176388091/R9opj-NP.png);
-	}
-
 	.content {
 		width: 1400px;
 	}
@@ -452,10 +453,6 @@ p a, p a:hover, p a:visited {
 }
 
 @media screen and (min-width: 901px) and (max-width: 1400px) {
-	#bg {
-		background-image: url(https://si0.twimg.com/profile_background_images/378800000176388091/R9opj-NP.png);
-	}
-
 	.content {
 		width: 95%;
 	}
@@ -486,10 +483,6 @@ p a, p a:hover, p a:visited {
 
 /* tablet */
 @media screen and (min-width: 321px) and (max-width: 900px) {
-	#bg {
-		background-image: url(https://si0.twimg.com/profile_background_images/378800000176388091/R9opj-NP.png);
-	}
-
 	.content {
 		width: 90%;
 	}
@@ -522,10 +515,6 @@ p a, p a:hover, p a:visited {
 
 /* iPhone */
 @media screen and (max-width: 320px) {
-	#bg {
-		background-image: url(https://si0.twimg.com/profile_background_images/378800000176388091/R9opj-NP.png);
-	}
-
 	.content {
 		width: 95%;
 	}
