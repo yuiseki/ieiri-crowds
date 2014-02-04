@@ -101,6 +101,7 @@ $(function() {
         setInterval(fireworks, 3000);
         lazyLoadContents();
         mouseIeiri();
+        numberOfVotes();
     });
 
     $('.kurenai').mouseover(function(e){
@@ -173,7 +174,7 @@ function loadTweetButtons(done) {
     console.log("loadTweetButtons");
     langList = [
         "ru", "fr", "ar", "es", "ko", "ru", "fil", "zh-tw", "zh-ch", "hi",
-        "ru", "fr", "ar", "es", "ko", "ru", "fil", "zh-tw", "zh-ch", "hi",
+        "ru", "fr", "ar", "es", "ko", "ru", "fil", "zh-tw", "zh-ch", "hi"
     ];
     $.each(langList, function(idx, lang){
         button = $("<div class='twbtn'><a class='twitter-share-button' href='https://twitter.com/share'>Tweet</a></div>");
@@ -236,6 +237,22 @@ function mouseIeiri() {
                     left:'easeOutCirc'
                 }});
     });
+}
+
+function numberOfVotes() {
+    var unixtime = Math.floor(new Date().getTime()/1000);
+    var num = unixtime*0.000001;
+    num *= 1.0;
+    var keta = ['万', '億', '兆', '京', '垓', '𥝱', '穣', '溝', '澗', '正', '載', '極', '恒河沙', '阿僧祇', '那由他', '不可思議', '無量大数'];
+    var text = '';
+    for ( var i = keta.length - 1; i >= 0; i-- ) {
+        var num2 = Math.floor( num / Math.pow( 10, i * 4 ) );
+        if ( num2 > 0 ) {
+            text += num2 + keta[i];
+            num = num % Math.pow( 10, i * 4 );
+        }
+    }
+    document.title = "東京都知事候補者 家入一真  予想得票数 "+text+"票 非公式ホームページ";
 }
 
 var rainbow_count = $('.rainbow').size();

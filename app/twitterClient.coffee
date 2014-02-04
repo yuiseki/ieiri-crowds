@@ -106,10 +106,10 @@ class TwitterClient
                 done(null, {result:"succeed"})
     autoTweet: (done)->
         console.log "try autoTweet"
-        @twitter.updateStatus "家入一真 http://ieirikazuma.com/", (err)=>
+        @twitter.updateStatus "東京都知事候補者 家入一真 http://ieirikazuma.com/", (err)=>
             if err?
                 console.log "tweet 重複"
-                @twitter.updateStatus "家入一真 http://ieirikazuma.com/ #{Math.floor(new Date().getTime()/1000)}", (err_)->
+                @twitter.updateStatus "東京都知事候補者 家入一真 http://ieirikazuma.com/ #{Math.floor(new Date().getTime()/1000)}", (err_)->
                     if err_?
                         console.log "tweet 失敗"
                         done "error"
