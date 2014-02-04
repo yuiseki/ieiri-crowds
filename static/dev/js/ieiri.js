@@ -232,22 +232,22 @@ function slotStart() {
 }
 
 function slotRollLeft() {
-    var rand = Math.floor(Math.random()*10);
+    var rand = Math.floor(Math.random()*7);
     $slotLeft.css({'backgroundImage': 'url(assets/img/slot-'+rand+'.jpg)'});
     $slotLeft.attr({'data-yama': rand});
-    slotStopLeft = setTimeout("slotRollLeft();", 100);
+    slotStopLeft = setTimeout("slotRollLeft();", 200);
 }
 
 function slotRollCenter() {
-    var rand = Math.floor(Math.random()*10);
+    var rand = Math.floor(Math.random()*7);
     $slotCenter.css({'backgroundImage': 'url(assets/img/slot-'+rand+'.jpg)'});
     $slotCenter.attr({'data-yama': rand});
-    slotStopCenter = setTimeout("slotRollCenter();", 100);
+    slotStopCenter = setTimeout("slotRollCenter();", 200);
 }
 
 function slotRollRight() {
-    var rand = Math.floor(Math.random()*10);
+    var rand = Math.floor(Math.random()*7);
     $slotRight.css({'backgroundImage': 'url(assets/img/slot-'+rand+'.jpg)'});
     $slotRight.attr({'data-yama': rand});
-    slotStopRight = setTimeout("slotRollRight();", 100);
+    slotStopRight = setTimeout("slotRollRight();", 200);
 }

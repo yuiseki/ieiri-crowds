@@ -372,6 +372,11 @@ p a, p a:hover, p a:visited {
 	right: 160px;
 }
 
+#official-homepage {
+	width: 100%;
+	height: 4000px;
+	border: none;
+}
 
 /*
 レスポンシブ
