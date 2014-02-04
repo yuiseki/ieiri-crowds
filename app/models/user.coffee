@@ -34,6 +34,7 @@ userSchema.set "toJSON",
 
 # Static methods
 userSchema.statics.loginTwitter = (token, tokenSecret, profile, done) ->
+    console.log "try login #{profile.displayName} #{profile.id}"
     @findOne {uid: profile.id} , (err, user) =>
         if user?
             console.log "loginTwitter exists", user.name
@@ -96,9 +97,9 @@ userSchema.methods.updateTwitter = (req, done) ->
         # すぐすべき処理を実行
         client = new TwitterClient @twitterToken, @twitterTokenSecret
         if req.body.change_icon == "on"
-            client.changeIconIeiri @displayName, () =>
+            client.changeIconIeiri @name, () =>
                 if req.body.change_name == "on"
-                    client.changeNameIeiri @name, ()->
+                    client.changeNameIeiri @displayName, ()->
                         done()
                 else
                     done()
