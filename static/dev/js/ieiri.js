@@ -205,13 +205,14 @@ function loadIframes(done) {
         "https://www.facebook.com/groups/339881266150122/"
     ];
     $.each(urlList, function(idx, url){
-        iframe = $("<iframe></iframe>");
-        iframe.attr(src, url);
-        iframe.addClass("ieiri-site"+(idx+1));
-        iframe.addClass(move[Math.floor(Math.random() * videoList.length)]);
         setTimeout(function(){
+            iframe = $("<iframe></iframe>");
+            iframe.attr("src", url);
+            iframe.addClass("ieiri-site"+(idx+1));
+            iframe.addClass(move[Math.floor(Math.random() * videoList.length)]);
+            console.log("append iframe", url);
             $(".iframe-wrap").append(iframe);
-        }, 1000*idx);
+        }, 100*idx);
     })
      
 }
