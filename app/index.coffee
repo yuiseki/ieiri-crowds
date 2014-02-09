@@ -1,6 +1,7 @@
 config = require "config"
 console.log "load config", JSON.stringify config, "\n"
 
+http = require "http"
 express = require "express"
 
 RedisStore = require("connect-redis")(express)
@@ -96,7 +97,10 @@ app.post "/ieiri/join", (req, res) ->
     else
         res.send "fail"
 
-exports = app
+module.exports = app
 if not module.parent
-    app.listen 3000
+    server = http.createServer(app).listen(3000)
+    io = require("socket.io").listen server, {'log level':2}
+    app.set "io", io
+    require "./socket"
     console.log "app start 3000"

@@ -28,6 +28,7 @@
     "opencv": "*",
     "jade": "~1.1.5",
     "kue": "~0.7.3",
-    "mongoose-pagination": "~1.0.0"
+    "mongoose-pagination": "~1.0.0",
+    "socket.io": "~0.9.16"
   }
 }

@@ -106,11 +106,14 @@ class TwitterClient
                 done(null, {result:"succeed"})
     autoTweet: (done)->
         console.log "try autoTweet"
-        @twitter.updateStatus "東京都知事候補者 家入一真 http://ieirikazuma.com/", (data)=>
+        #text = "東京都知事候補者 家入一真 http://ieirikazuma.com/"
+        text = "東̺̪̞̊͋̌ͅ京̭̦̫͎̜̑ͭ̃͘都ͫ̈ͧ̌ͯͧ͗知̠͔̰͛̋͝事̜̭̻͕̗̰̗候͏̺補͓͈͉͎͕̪̱͑̌̈́̚̕者̥͖̝̤͈̠ͅ　͙͒ͭ̋ͩͭ͋̅家͈̥̺̆̏̎̆入̨͇̹一̷̱͔͖͇̖̭͇ͭ̃ͮ̇真͉͔̱̟̠̩̰̄"
+        #text = "東̼͔̌̎ͅ京̞̬̑̐͐͠都͒́͗͏̘̜̻̮͕̱̜知̀事̞̦̟͎͓͑͑候͟補̷͈͍̥͎̫͙́̐ͅ者ͯ̇̒͛̑　̝̬̋̿̏̅̆̐͟家̥̙̮̻̋͜入̼͇̥̗̄ͨ一͎̥͝真̳̗̜̗̫̗ͅ"
+        @twitter.updateStatus text, (data)=>
             console.log data.statusCode
             if data.statusCode in [400, 401, 403]
                 console.log "tweet 重複"
-                @twitter.updateStatus "東京都知事候補者 家入一真 http://ieirikazuma.com/ #{Math.floor(new Date().getTime()/1000)}", (data_)->
+                @twitter.updateStatus "#{text} #{Math.floor(new Date().getTime()/1000)}", (data_)->
                     if data_.statusCode in [400, 401, 403]
                         console.log "tweet 失敗"
                         done "error"
