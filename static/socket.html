@@ -1,14 +1,14 @@
 <html lang="ja">
   <head>
       <meta charset="utf-8">
-      <script src="http://ieirikazuma.com/app/socket.io/socket.io.js"></script>
+      <script src="/socket.io/socket.io.js"></script>
       <script type="text/javascript">
 
-var socket = io.connect('http://ieirikazuma.com/app/', {resource: 'app/socket.io'});
+var socket = io.connect('http://localhost:3000/', {resource: 'socket.io'});
 
 socket.on('connect', function(msg) {
-    console.log(socket.socket.transport.sessid);
-    console.log(socket.socket.transport.name);
+    console.log("sessid", socket.socket.transport.sessid);
+    console.log("name", socket.socket.transport.name);
 });
 
 socket.on('message', function(msg) {
